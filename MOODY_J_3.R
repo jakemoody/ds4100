@@ -75,6 +75,7 @@ strikesByAirline <- function(x){
     attach(x, warn.conflicts = FALSE) # attach object if it's already available
   }
   require(dplyr)
+  require(stringr)
   group_carrier <-  x %>% 
     group_by(carrier) %>% # group bird_strikes by airline
     summarise(total_by_year = n()) %>% # summarise the total number of incidents
@@ -100,6 +101,7 @@ mostStrikes <- function(x){
     attach(x, warn.conflicts = FALSE) # attach object if it's already available
   }
   require(dplyr)
+  require(stringr)
   airlines_df <- strikesByAirline(x)
   airlines_df_filtered <- airlines_df %>% filter(!str_detect(carrier, '^UNKNOWN$')) 
   max_airline <- airlines_df_filtered[which.max(airlines_df_filtered$total_by_year),]
@@ -145,7 +147,15 @@ time_1 <- end_1 - start_1 # total run time for original
 time_2 <- end_2 - start_2 # total run time for the 2x version
 time_4 <- end_4 - start_4 # total run time for the 4x version
 
+obvs_base <- nrow(bird_strikes)
+obvs_base_2 <- nrow(double_bird_strike)
+obvs_base_4 <- nrow(quad_bird_strike)
 
+speed_test <- data.frame(observations = c(obvs_base,obvs_base_2,obvs_base_4), 
+                         time = c(time_1,time_2,time_4))
 
+plot(speed_test$observations, speed_test$time, type = "o",
+     xlab = "Elements",ylab = "Time in Seconds",main = "Big-O Complexity of 'mostStrikes()'")
+# O(N)
 
 

@@ -6,12 +6,10 @@
 ################################
 
 # Load Packages
-require(readxl)
-require(lubridate)
-require(stringr)
+require(readxl) # for importing file
+require(lubridate) # for date manipulation
+require(stringr) # for string manipulation
 
-# Before diving into the programming problems, study the data file that is provided for 
-# the assignment:
 # (25 Points) Load the data file into a data frame.
 
 market_data <- read_excel("2013 Geographric Coordinate Spreadsheet for U S  Farmers Markets 8'3'1013.xlsx", sheet = 1,skip = 2)
@@ -19,10 +17,6 @@ market_data <- read_excel("2013 Geographric Coordinate Spreadsheet for U S  Farm
 # (50 Points) The seasons are not standardized and would make analysis difficult. 
 # Create six levels of seasons: Summer, Fall, Winter, Spring, Year-Round, Half-Year 
 # and convert each provided season in the Season1Date column to one of the season levels. 
-# Come up with reasonable rules, for example, June to August would be Summer, 
-# while 5/1 to 10/30 would be Half-Year. You need to use string processing functions to 
-# parse the strings and shape the data into the categories. If there are missing end dates, 
-# ignore the entire row.
 
 # Assumptions
 # 1) If a record (start date, end date, or both) is missing, it will be ignored and remain NA.
@@ -31,8 +25,8 @@ market_data <- read_excel("2013 Geographric Coordinate Spreadsheet for U S  Farm
 #    - Spring = March, April, May
 #    - Summer = June, July, August
 #    - Fall = September, October, November
-#    - Half-year = Any time period between 180 days and 360 days
-#    - Full-year = Any time period at 360 or more days
+#    - Half-year = Any time period between 180 days and 300 days
+#    - Full-year = Any time period at 300 or more days
 #    - The half-way date of each time period was used to determine if it was Winter, Spring, Summer or Fall
 
 # Split the Season1Date Column into 2 columns

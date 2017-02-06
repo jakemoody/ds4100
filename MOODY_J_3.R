@@ -6,9 +6,9 @@
 ################################
 
 # Load Packages
-require(lubridate)
-require(dplyr)
-require(stringr)
+require(lubridate) # for date manipulation 
+require(dplyr) # for data manipulation
+require(stringr) # for string manipulation
 
 # (20 Points) Load the data file "BirdStrikes" into an appropriate data object of your choice.
 bird_strikes_raw <- read.csv("Bird Strikes.csv", header = TRUE, stringsAsFactors = FALSE) # load raw dataset
@@ -84,7 +84,7 @@ strikesByAirline <- function(x){
 }
 
 # test function
-test <- strikesByAirline(bird_strikes) # test is a data frame with 370 obs & 2 variables
+AirlineStrikes <- strikesByAirline(bird_strikes) # test is a data frame with 370 obs & 2 variables
 
 # (10 Points) Write a function called mostStrikes() that accepts the dataframe AirlineStrikes 
 # from (4) as an argument and returns the airline that has the most bird strike incidents.
@@ -118,7 +118,7 @@ mostStrikes(bird_strikes) # United Airlines
 # Based on the curve, find the complexity of the function and define big-O. 
 # Hint: Consider using the rbind() function to concatenate data frames.
 
-## Create 2x and 4x verion of the data
+## Step 1: Create 2x and 4x verion of the data using rbind
 
 # Create 2x copy
 bird_strikes_2 <- bird_strikes # make a copy of the original
@@ -129,7 +129,8 @@ double_bird_strike_2 <- double_bird_strike # make a copy of the 2x version
 quad_bird_strike <- rbind(double_bird_strike, double_bird_strike_2) # bind the 2x version and its duplicate
 
 
-### Run Code Below To Test Speed ###
+## Step 2: Run the code below and measure time with Sys.time()
+
 # run the original
 start_1 <- Sys.time()
 mostStrikes(bird_strikes)
@@ -143,19 +144,29 @@ start_4 <- Sys.time()
 mostStrikes(quad_bird_strike)
 end_4 <- Sys.time()
 
+## Step 3: Calculate runtime of the function on each dataset
+
 time_1 <- end_1 - start_1 # total run time for original
 time_2 <- end_2 - start_2 # total run time for the 2x version
 time_4 <- end_4 - start_4 # total run time for the 4x version
 
+## Step 4: Use nrow() to determine the number of elements
 obvs_base <- nrow(bird_strikes)
 obvs_base_2 <- nrow(double_bird_strike)
 obvs_base_4 <- nrow(quad_bird_strike)
 
+## Step 5: Create a data frame with the data
 speed_test <- data.frame(observations = c(obvs_base,obvs_base_2,obvs_base_4), 
                          time = c(time_1,time_2,time_4))
 
+## Step 6: Plot the data
 plot(speed_test$observations, speed_test$time, type = "o",
      xlab = "Elements",ylab = "Time in Seconds",main = "Big-O Complexity of 'mostStrikes()'")
-# O(N)
+
+## RESULTS: 
+# The complexity of the mostStrikes function is best defined as O(N)
+# as the plot shows a linear curve. The number of operations increases linearly
+# as the number of elements in the data frame increases. 
+
 
 

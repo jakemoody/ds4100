@@ -1,0 +1,33 @@
+---
+title: "Assignment #6"
+author: "Jake Moody"
+date: "2/13/2017"
+output: pdf_document
+---
+
+For this assignment, I wanted to collect annual viewership data for the Superbowl. I found this data on [Wikipedia](https://en.wikipedia.org/wiki/List_of_Super_Bowl_TV_ratings). Here's a screenshot of the data as it is shown on the web:  
+
+\includegraphics[width=400pt]{Wikipedia.png}
+
+I used Google Sheets as a webscraping toolkit. In particular, I used the `IMPORTHTML` function which accepts a `URL`, `Query` ('Table' or 'List') and `Index` argument. Here is the function I used to scrape the Wikipedia page: 
+
+`=IMPORTHTML("https://en.wikipedia.org/wiki/List_of_Super_Bowl_TV_ratings","table",1)`
+
+Here's a screenshot of the Google Sheet after I scraped the data from the Wikipedia page. You can see the function in the formula line: 
+
+\includegraphics[width=400pt]{GoogleSheets.png}  
+
+Once I finished scraping the data, I saved the Google Sheet as a .csv file. I then used the `read.csv` function in R to import the sheet as a data frame. You can see how I did this with the code below. I also tested the `class` of `superbowl_views` to confirm it was a data frame. Then, I used the `print` function to show a complete output of the data frame.
+
+```{r echo = TRUE}
+# Import Super Bowl Viewership Data as a data frame
+
+superbowl_views <- read.csv("WebScraping - Sheet3.csv", header = TRUE) # import 
+
+class(superbowl_views) # confirm it's a data frame
+
+print(superbowl_views) # print the results
+
+```
+
+The output of this data frame mirrors the data in Google Sheets and the data avaialble on Wikipedia. This data is in a interpretable format and only requires a bit of cleaning to begin analysis. 

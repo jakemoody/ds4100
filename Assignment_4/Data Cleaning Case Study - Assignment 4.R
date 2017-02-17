@@ -12,7 +12,7 @@ require(stringr) # for string manipulation
 
 # (25 Points) Load the data file into a data frame.
 
-market_data <- read_excel("2013 Geographric Coordinate Spreadsheet for U S  Farmers Markets 8'3'1013.xlsx", sheet = 1,skip = 2)
+market_data <- read_excel("Assignment_4/2013 Geographric Coordinate Spreadsheet for U S  Farmers Markets 8'3'1013.xlsx", sheet = 1,skip = 2)
 
 # (50 Points) The seasons are not standardized and would make analysis difficult. 
 # Create six levels of seasons: Summer, Fall, Winter, Spring, Year-Round, Half-Year 

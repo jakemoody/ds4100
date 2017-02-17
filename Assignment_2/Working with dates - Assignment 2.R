@@ -7,7 +7,7 @@
 
 # (25 Points) Load the data file "Acquisitions" into an appropriate data object of your choice. 
 # The files contains dates and firms into which an investment was made.
-acquisitions <- read.csv("acquisitions.csv", header = TRUE, sep = ",") 
+acquisitions <- read.csv("Assignment_2/acquisitions.csv", header = TRUE, sep = ",") 
 
 # (75 Points) Write a function called leastInvInterval() that finds the smallest interval between successive investments.
 leastInvInterval <- function(x){

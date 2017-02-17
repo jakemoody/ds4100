@@ -11,7 +11,7 @@ require(dplyr) # for data manipulation
 require(stringr) # for string manipulation
 
 # (20 Points) Load the data file "BirdStrikes" into an appropriate data object of your choice.
-bird_strikes_raw <- read.csv("Bird Strikes.csv", header = TRUE, stringsAsFactors = FALSE) # load raw dataset
+bird_strikes_raw <- read.csv("Assignment_3/Bird Strikes.csv", header = TRUE, stringsAsFactors = FALSE) # load raw dataset
 
 # Create helper cleaning function 
 clean_data <- function(x){

@@ -7,7 +7,7 @@
 
 # (5 Points) Load the data file into an appropriate data object of your choice. 
 # Load file as a data frame
-airline_data <- read.table("AirlineDelays.txt", header = TRUE, sep = ",") # load data & create data frame 
+airline_data <- read.table("Assignment_1/AirlineDelays.txt", header = TRUE, sep = ",") # load data & create data frame 
 
 # (30 Points) Write a function called TotalNumDelays(Carrier) that finds and returns the total number of delays of a carrier. 
 TotalNumDelays <- function(x){

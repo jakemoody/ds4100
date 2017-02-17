@@ -3,16 +3,11 @@ Contains assignments and projects for my DS4100 — Data Collection, Integra
 
 Website: http://ds4100.weebly.com
 
-Topics covered include:
-- Intro R Programming
-- Working with Dates in R 
-- Working with Strings in R
-- Testing code complexity
-- Reading data from XML in R
-- Web scraping HTML with a toolkit
-- Web scraping HTML with R 
-- Working with Relational Databases
-- Descriptive statistics
-- Predictive Modeling
-- Machine learning
-- & more...
+Assignments:
+- Assignment 1, R functions
+- Assignment 2, Working with Dates in R
+- Assignment 3, Working with Strings & Dates in R
+- Assignment 4, Cleaning Data Case Study
+- Assignment 5, Reading XML in R
+- Assignment 6, Web Scraping with a Toolkit
+- Assignment 7, Web Scraping with R

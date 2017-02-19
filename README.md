@@ -13,5 +13,5 @@ Assignments:
 - Assignment 3, Working with Strings & Dates in R
 - Assignment 4, Cleaning Data Case Study
 - Assignment 5, Reading XML in R
-- Assignment 6, Web Scraping with a Toolkit
-- Assignment 7, Web Scraping with R
+- Assignment 6, Web Scraping Superbowl Data with a Toolkit
+- Assignment 7, Web Scraping Beer Rating Data with R
